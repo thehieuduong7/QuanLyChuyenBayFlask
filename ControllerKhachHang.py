@@ -9,7 +9,7 @@ class KhachHangController():
             return None
         path=os.path.join(app.config['UPLOAD_FOLDER'], filename)
         img.save(path) 
-        return path
+        return filename
     def insert(self,data):
         HoTenKH=data['HoTenKH']
         GioiTinh=data['GioiTinh']
@@ -50,7 +50,7 @@ class KhachHangController():
     def listInPage(self,page,list):
         lenList = len(list)
         maxInPage=5
-        start = page * maxInPage
+        start = (page-1) * maxInPage
         end = start+maxInPage
         if(end>lenList):
             return list[start:]

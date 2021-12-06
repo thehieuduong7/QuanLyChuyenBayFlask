@@ -7,11 +7,9 @@ from flask_login import LoginManager
 app = Flask(__name__)
 
 #Tuan's
-<<<<<<< HEAD
-app.config["SQLALCHEMY_DATABASE_URI"] ="mysql+pymysql://root:27072000@localhost/finalproj?charset=utf8mb4"
-=======
-app.config["SQLALCHEMY_DATABASE_URI"] ="mysql+pymysql://root:tuan@1310@localhost/finalproj?charset=utf8mb4"
->>>>>>> 47f415dc88d16d495ba6d43da250fd4a0ae3ed13
+#app.config["SQLALCHEMY_DATABASE_URI"] ="mysql+pymysql://ux8obz0sibpjschf:XdWQnVC97JccNI4ackZc@bcjdyzm3mw1kjexmtco6-mysql.services.clever-cloud.com:3306/bcjdyzm3mw1kjexmtco6?charset=utf8mb4"
+app.config["SQLALCHEMY_DATABASE_URI"] ="mysql+pymysql://root@localhost/test?charset=utf8mb4"
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 # Cần có key để thao tác với session

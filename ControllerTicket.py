@@ -32,7 +32,8 @@ class TicketController:
         chuyenBay = ChuyenBay.query.get(idChuyenBay)
         if(chuyenBay==None): return False
         ThoiGianXuatPhat = chuyenBay.ThoiGianXuatPhat
-        diff_now = (ThoiGianXuatPhat-datetime.today()).days
+        diff_now = (ThoiGianXuatPhat-datetime.today())
+        diff_now = diff_now.days*24+diff_now.seconds//3600
         
         if(minDatVe>diff_now):
             return False
@@ -130,7 +131,7 @@ class TicketController:
     
     def DatVeNhieuVe(self,Id_ChuyenBay,HangVe,list_kh):
         if(not self.checkQuyDinhDatVe(Id_ChuyenBay)):
-            return False
+            return "Bán vé thất bại!!! Vi phạm quy định"
         kh_dao=KhachHangController()
         try:
             list_ve=[]
@@ -143,7 +144,7 @@ class TicketController:
             return True
         except exc.SQLAlchemyError:
             db.session.rollback()
-            return False
+            return "Bán vé thất bại!!! Kiểm tra lại thông tin khách hàng!!!"
         
         
     
@@ -179,7 +180,7 @@ class TicketController:
 
 if(__name__=="__main__"):
     dao = TicketController()
-    ve = Ve.query.get(1)
-    print(dao.sendTicketByMail(ve))
+    #ve = Ve.query.get(1)
+    print(dao.checkQuyDinhDatVe(1))
    # print(dao.checkQuyDinhBanVe(1,'Thuong',2))
         

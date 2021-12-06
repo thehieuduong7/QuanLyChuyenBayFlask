@@ -323,7 +323,7 @@ def list_khach():
 
 @app.route("/dat-ve-online/<int:id_cb>/<hang>/<int:soluong>",methods=['Get','Post'])
 def dat_ve_online(id_cb,hang,soluong):
-    if current_user.is_authenticated:
+    if current_user.VaiTro == "K":
         soluong=int(soluong)
         id_cb=int(id_cb)
         cb= ChuyenBay.query.get(id_cb)
@@ -360,7 +360,7 @@ def dat_ve_online(id_cb,hang,soluong):
             return render_template("dat-ve-online.html",
                     number_kh=soluong,chuyenBay=cb,hangVe=hang,mess=mess,contentMess=contentMess,
                     minDat=minDat,tongTien=tongTien)
-    return 'faile',403   
+    return 'chua dang nhap',403   
 
 # Khách hàng & Nhân viên
 @app.route("/info-ve")
