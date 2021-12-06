@@ -45,7 +45,7 @@
                 {% for v in ve %}
                 <tr>
                   <td class="goods-page-image">
-                    <btn><img src="{{{{url_for('static', filename='uploads/' + kh.HinhAnh)}} }}" alt="Ảnh đại diện"></btn>
+                    <btn><img src="{{url_for('static', filename='uploads/' + kh.HinhAnh)}}" alt="Ảnh đại diện"></btn>
                   </td>
                   <td class="goods-page-description">
                     <h3><a href="#">{{ v.khachhang.HoTenKH }}</a></h3>
