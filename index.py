@@ -173,8 +173,9 @@ def ban_ve(id_cb,hang,soluong):
                 data_kh['CMND']=request.form.get('CMND'+str(i))
                 data_kh['Email']=request.form.get('Email'+str(i))
                 data_kh['HinhAnh'] = request.files['HinhAnh'+str(i)]
+                data_kh['id_nguoidung']=current_user.id
                 list_kh.append(data_kh.copy())
-            
+
             mess="success"  
             contentMess="Bán vé thành công!!! vui lòng kiểm tra gmail!!!"
             
@@ -347,6 +348,8 @@ def dat_ve_online(id_cb,hang,soluong):
                 data_kh['CMND']=request.form.get('CMND'+str(i))
                 data_kh['Email']=request.form.get('Email'+str(i))
                 data_kh['HinhAnh'] = request.files['HinhAnh'+str(i)]
+                data_kh['id_nguoidung']=current_user.id
+
                 list_kh.append(data_kh.copy())
             
             mess="success"  

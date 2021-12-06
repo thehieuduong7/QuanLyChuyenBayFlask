@@ -18,9 +18,11 @@ class KhachHangController():
         CMND=data['CMND']
         Email=data['Email']
         HinhAnh = data['HinhAnh']
+        id_nguoidung=data['id_nguoidung']
+
         kh = KhachHang(HoTenKH=HoTenKH,GioiTinh=GioiTinh,
                        NamSinh=NamSinh,SDT=SDT,
-                       CMND=CMND,Email=Email)
+                       CMND=CMND,Email=Email,id_nguoidung=id_nguoidung)
         db.session.add(kh)
         db.session.flush()
         db.session.refresh(kh)
